@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+body {
+    // font-family: 'Dancing Script', cursive;
+    // font-family: 'Bebas Neue', cursive;
+    font-family: 'Outfit', sans-serif;
+    background-color: #003D65;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    >img {
+        position: absolute;
+
+        &.t {
+            transform: translateX(-50%) !important;
+
+            &-1 {
+                left: 0;
+                bottom: -1rem;
+            }
+
+            &-2 {
+                left: 25%;
+                bottom: -1.5rem;
+            }
+
+            &-3 {
+                left: 50%;
+                bottom: -2rem;
+            }
+
+            &-4 {
+                left: 75%;
+                bottom: -1.5rem;
+            }
+
+            &-5 {
+                left: 100%;
+                bottom: 3rem;
+            }
+        }
+
+        &.snowman {
+            right: 10rem;
+            bottom: -3rem;
+        }
+
+        &.reindeer {
+            right: -4.5rem;
+            bottom: 10rem;
+        }
+
+        &.santa {
+            right: -4rem;
+            bottom: -4rem;
+        }
+    }
+}
+
+.card-slot {
+    height: var(--slot-height);
+    width: var(--slot-height);
+    border-radius: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border-width: 0;
+    background-image: radial-gradient(white 0%, white 50%, yellow 100%);
+
+    &-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 120%;
+        filter: saturate(2) drop-shadow(0 0 1rem rgba(yellow, .5));
+    }
+
+    &-body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    ul {
+        height: calc(var(--slot-height) / 2);
+        font-size: calc(var(--slot-height) / 2);
+        line-height: calc(var(--slot-height) / 2);
+        position: relative;
+        float: left;
+        width: 100%;
+        color: red;
+        text-shadow: 0 0 .25rem rgba(black, .25);
+
+        >li {
+            transform: translateY(calc((var(--slot-height) / 2) / 2));
+
+            &:nth-child(even) {
+                color: green;
+            }
+        }
+    }
+}
+
+.swal2 {
+    &-text {
+        margin-bottom: 0;
+        font-size: 4em;
+        font-weight: bold;
+    }
+}

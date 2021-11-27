@@ -1,0 +1,12 @@
+{
+  "name": "christmas-slot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ratanont-s/christmas-slot.git",
+  "author": "rathanont <rathanont.s@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@sweetalert2/theme-bootstrap-4": "^5.0.8",
+    "sweetalert2": "^11.2.1"
+  }
+}
