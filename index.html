@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RANDOM NUMBER</title>
+    <title>OWNDAYS Merry Christmas</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -23,14 +23,22 @@
             <img src="./img/t3.png" alt="" class="t t-3" data-aos="fade-in">
             <img src="./img/t4.png" alt="" class="t t-4" data-aos="fade-in">
             <img src="./img/t5.png" alt="" class="t t-5" data-aos="fade-in">
-            <img src="./img/snowman.png" alt="" class="snowman" data-aos="fade-up" data-aos-delay="300">
-            <img src="./img/reindeer.png" alt="" class="reindeer" data-aos="fade-up" data-aos-delay="200">
-            <img src="./img/santa.png" alt="" class="santa" data-aos="fade-up" data-aos-delay="100">
+            <span class="snowman" data-aos="fade-up" data-aos-delay="300"><img src="./img/snowman.png" alt=""></span>
+            <span class="reindeer" data-aos="fade-up" data-aos-delay="200"><img src="./img/reindeer.png" alt=""></span>
+            <span class="santa" data-aos="fade-up" data-aos-delay="100"><img src="./img/santa.png" alt=""></span>
         </div>
-        <div class="container position-relative">
-            <h1 class="text-white mb-5" data-aos="fade-down">
-                <span class="fw-bold d-block">OWNDAYS</span>
-                <span class="fw-lighter">Christmas random</span>
+        <div class="position-absolute top-0 start-0 pt-3 ps-3">
+            <button type="button" id="btnMusic" class="btn bg-white bg-opacity-25" onClick="aud_play_pause();"><i
+                    class="bi bi-volume-up-fill" id="iconVolume"></i></button>
+            <audio autoplay loop playsinline class="d-none" id="musicBg">
+                <source src="./ringtones/christmas-gifts.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="container" style="margin-top: -4rem;">
+            <h1 class="text-white mb-5 position-relative" data-aos="fade-down">
+                <img src="./img/bg-text.png" alt=""
+                    class="img-fluid position-absolute top-100 start-50 translate-middle">
+                <img src="./img/text.svg" alt="" class="img-fluid">
             </h1>
             <div class="card card-slot fw-bold mb-5" id="spin" style="--slot-height: 200px;" data-aos="zoom-in">
                 <img src="./img/bg-slot.png" alt="" class="card-slot-bg">
@@ -49,7 +57,8 @@
                     </ul>
                 </div>
             </div>
-            <button type="button" class="btn btn-light btn-lg" id="btn-spin" data-aos="fade-up">Start Spin!</button>
+            <button type="button" class="btn btn-spin" id="btn-spin" data-aos="fade-up">Start
+                Spin!</button>
         </div>
     </main>
 
@@ -62,11 +71,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="./slotmachine.min.js"></script>
     <script>
+        var musicBg = document.getElementById("musicBg");
+        musicBg.play();
+
+        function aud_play_pause() {
+            if (musicBg.paused) {
+                $('#iconVolume').removeClass('bi-volume-mute-fill');
+                $('#iconVolume').addClass('bi-volume-up-fill');
+                musicBg.play();
+            } else {
+                $('#iconVolume').removeClass('bi-volume-up-fill');
+                $('#iconVolume').addClass('bi-volume-mute-fill');
+                musicBg.pause();
+            }
+        }
         $(function () {
+
+
             AOS.init({
                 offset: 0,
                 duration: 1000,
                 easing: 'ease-in-out-back',
+            });
+
+            Swal.fire({
+                title: 'Your name!',
+                input: 'text',
+                confirmButtonText: 'Confirm',
             });
 
             var sound = new Audio('ringtones/spinning.mp3');

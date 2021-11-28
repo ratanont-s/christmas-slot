@@ -1,12 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css");
 
 body {
-    // font-family: 'Dancing Script', cursive;
-    // font-family: 'Bebas Neue', cursive;
-    font-family: 'Outfit', sans-serif;
     background-color: #003D65;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .bg {
@@ -17,7 +34,7 @@ body {
     bottom: 0;
     overflow: hidden;
 
-    >img {
+    >* {
         position: absolute;
 
         &.t {
@@ -51,18 +68,40 @@ body {
 
         &.snowman {
             right: 10rem;
-            bottom: -3rem;
+            bottom: -2rem;
+
+            img {
+                animation: swing 10s linear 0s infinite;
+            }
         }
 
         &.reindeer {
             right: -4.5rem;
             bottom: 10rem;
+
+            img {
+                animation: swing 10s linear 1s infinite;
+            }
         }
 
         &.santa {
-            right: -4rem;
-            bottom: -4rem;
+            right: -3rem;
+            bottom: -3.5rem;
+
+            img {
+                animation: swing 10s linear 2s infinite;
+            }
         }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(359deg);
     }
 }
 
@@ -84,6 +123,7 @@ body {
         width: 120%;
         height: 120%;
         filter: saturate(2) drop-shadow(0 0 1rem rgba(yellow, .5));
+        animation: spin 60s linear infinite;
     }
 
     &-body {
@@ -114,9 +154,40 @@ body {
 }
 
 .swal2 {
+    &-popup {
+        border-radius: 1rem;
+    }
+
     &-text {
         margin-bottom: 0;
         font-size: 4em;
         font-weight: bold;
+    }
+
+    &-input {
+        text-align: center;
+    }
+
+    &-confirm,
+    &-confirm:hover,
+    &-confirm:focus {
+        font-weight: 700;
+        background-color: red !important;
+        color: white;
+        box-shadow: 0 .5rem 0 darkred !important;
+    }
+}
+
+.btn-spin {
+    position: relative;
+    font-weight: 700;
+    background-color: red;
+    color: white;
+    box-shadow: 0 .5rem 0 darkred;
+
+    &:hover,
+    &:focus {
+        color: white;
+        box-shadow: 0 .1rem 0 darkred;
     }
 }
